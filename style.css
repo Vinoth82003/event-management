@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -55,6 +56,7 @@ body{
     height: 80px;
     background: #ffffffa6;
     border-radius: 50%;
+    overflow: hidden;
 }
 
 .name{
@@ -265,6 +267,57 @@ img{
 
 .action.register{
     background: orangered;
+}
+
+.count-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.counters{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.counters_title{
+    font-family:"Audiowide" ;
+    color: #d400ff;
+    font-size: 22px;
+}
+
+.inner-count{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: #ff00dd2d;
+    border-radius: 5px;
+    min-width: 100px;
+    backdrop-filter: blur(3px);
+}
+
+.count_title{
+    padding: 5px;
+    background: #ffffff;
+    width: 100%;
+    border-radius: 5px 5px 0px 0px ;
+    text-align: center;
+    font-family: "Orbitron";
+    font-weight: 700;
+}
+
+.count{
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "Audiowide";
 }
 
 @media screen and (max-width:1048px) {
