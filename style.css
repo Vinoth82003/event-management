@@ -283,6 +283,7 @@ img{
 
     .nav_menu.active{
         display: flex;
+        background: #202020;
     }
 
     .menu-option{
