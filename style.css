@@ -282,6 +282,7 @@ img{
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 10px;
 }
 
 .counters_title{
