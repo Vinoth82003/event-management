@@ -33,3 +33,32 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 observer.observe(countBox);
+
+const targetDate = new Date("February 21, 2024 00:00:00").getTime();
+
+        // Function to update the countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeDifference = targetDate - now;
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.querySelector('.days').innerText = `${days} d`;
+            document.querySelector('.hours').innerText = `${hours} hrs`;
+            document.querySelector('.mins').innerText = `${minutes} mins`;
+            document.querySelector('.secs').innerText = `${seconds} secs`;
+
+            if (timeDifference <= 0) {
+                // Countdown reached, you can handle this event as needed
+                document.getElementById('countdown').innerHTML = '<p>Event has started!</p>';
+            }
+        }
+
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+
+        // Initial call to set the countdown on page load
+        updateCountdown();
