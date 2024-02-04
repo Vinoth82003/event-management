@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/ticket.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas2image/0.4/canvas2image.min.js"></script> -->
 </head>
 <body>
     <div class="nav_bar">
@@ -17,8 +17,8 @@
             <a href="/"  class="option back" >
                     <i class="fas fa-arrow-left"></i>
             </a>
-            <li class="option download">
-                <span class="button" id="downloadPDF">
+            <li class="option download" id="downloadImage">
+                <span class="button" >
                     <i class="fas fa-download"></i>
                 </span>
             </li>
@@ -70,13 +70,26 @@
     </div>
     <script>
         // Download as PDF
-        document.getElementById('downloadPDF').addEventListener('click', function () {
+        // document.getElementById('downloadPDF').addEventListener('click', function () {
+        //     document.querySelector(".ticket-page").classList.add("active");
+        //     const element = document.getElementById('ticket');
+        //     html2pdf(element);
+        //     setTimeout(() => {
+        //         document.querySelector(".ticket-page").classList.remove("active");
+        //     }, 5000);
+        // });
+
+        document.getElementById('downloadImage').addEventListener('click', function () {
             document.querySelector(".ticket-page").classList.add("active");
             const element = document.getElementById('ticket');
-            html2pdf(element);
-            setTimeout(() => {
+            html2canvas(element).then(canvas => {
+                const image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+                const link = document.createElement('a');
+                link.href = image;
+                link.download = 'ticket_image.png';
+                link.click();
                 document.querySelector(".ticket-page").classList.remove("active");
-            }, 5000);
+            });
         });
       </script>       
 </body>

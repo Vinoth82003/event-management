@@ -97,6 +97,7 @@ img{
     display: flex;
     background: #fff;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .ticket-image{
