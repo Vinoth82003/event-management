@@ -53,7 +53,7 @@ const targetDate = new Date("February 21, 2024 00:00:00").getTime();
 
             if (timeDifference <= 0) {
                 // Countdown reached, you can handle this event as needed
-                document.getElementById('countdown').innerHTML = '<p>Event has started!</p>';
+                document.getElementById('countdown').innerHTML = '<p class="count" style="font-size: 30px;" >Event has started !</p>';
             }
         }
 

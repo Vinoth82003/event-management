@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tsParticles Confetti</title>
+
+  <!-- Include tsParticles Confetti bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.2.1/tsparticles.confetti.bundle.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #535353;
+    }
+
+    #particles-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="particles-container"></div>
+
+  <script>
+    function startConfetti(position) {
+      const options = {
+        particleCount: 50,
+        angle: 90,
+        count: 50,
+        spread: 45,
+        startVelocity: 45,
+        decay: 0.9,
+        gravity: 1,
+        drift: 0,
+        ticks: 200,
+        colors: ["#ffffff", "#ff0000"],
+        shapes: ["square", "circle"],
+        scalar: 1,
+        zIndex: 100,
+        disableForReducedMotion: true,
+      };
+
+      if (position === 'bottom-left') {
+        options.position = { x: 20, y: window.innerHeight - 20 };
+      } else if (position === 'bottom-right') {
+        options.position = { x: window.innerWidth - 20, y: window.innerHeight - 20 };
+      }
+
+      confetti("tsparticles", options);
+    }
+
+    // Delay confetti initialization until after the document is fully loaded
+    function initConfetti() {
+      startConfetti('bottom-left');
+      startConfetti('bottom-right');
+    }
+
+    // Use requestAnimationFrame to ensure the document is fully loaded
+    requestAnimationFrame(initConfetti);
+  </script>
+
+</body>
+</html>
